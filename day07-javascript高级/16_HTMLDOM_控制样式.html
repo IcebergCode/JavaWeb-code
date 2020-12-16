@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>控制样式</title>
+    <style>
+        .d1 {
+            border: 1px solid red;
+            width: 100px;
+            height: 100px;
+        }
+        .d2 {
+            border: 2px solid blue;
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+        div1
+    </div>
+    <div id="div2">
+        div2
+    </div>
+
+
+    <script>
+        var div1 = document.getElementById("div1");
+        div1.onclick = function () {
+            //修改样式方式1
+            div1.style.border = "1px solid red";
+            div1.style.width = "200px";
+            div1.style.fontSize = "20px";   //设置字的大小
+        };
+
+        var div2 = document.getElementById("div2");
+        div2.onclick = function () {
+            //使用元素的className来设置。注意原来标签内并未设置class属性
+            div2.className = "d1";  //设置为d1的class属性，d1控制的样式就会生效
+        };
+    </script>
+</body>
+</html>
