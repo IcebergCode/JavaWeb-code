@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Array对象</title>
+    <script>
+
+        /*
+        *   Array：数组对象
+        *       1. 创建
+        *           1. var arr = new Array(元素列表);
+        *           2. var arr = new Array(默认长度);
+        *           3. var arr = [元素列表];
+        *
+        *       2. 方法
+        *           1. join(参数)：将数组中的元素按照指定的分隔符拼接为字符串
+        *           2. push()：向数组的末尾添加一个或更多元素，并返回新的长度
+        *
+        *       3. 属性
+        *           1. length：数组的长度
+        *
+        *       4. 特点
+        *           1. 在JS中，数组元素的类型是可变的
+        *           2. 在JS中，数组的长度是可变的
+        *
+        * */
+
+        //创建方式1
+        var arr1 = new Array(1,2,3);
+        var arr2 = new Array(5);    //长度为5
+        var arr3 = [1,2,3,4];
+        // document.write(arr1 + "<br>");
+        // document.write(arr2 + "<br>");
+        // document.write(arr3 + "<br>");
+
+        var arr4 = [1, "abc", true];
+        document.write(arr4 + "<br>");
+        document.write(arr4[0] + "<br>");   //通过数组下标访问数组元素
+        document.write(arr4[1] + "<br>");
+        document.write(arr4[2] + "<br>");
+
+        arr4[10] = "hehe";
+        document.write(arr4[10] + "<br>");  //结果为：hehe。因为JS中的数组的长度可变，此时数组aar4长度变为11
+        document.write(arr4[9] + "<br>");   //结果为：undefined
+        //document.write(arr4.length);        //结果为11。注意：如果未给arr4[10]赋值，数组arr4的长度仍为3
+
+        document.write(arr4.join() + "<br>");   //默认按照","方式拼接
+        document.write(arr4.join("--") + "<br>");   //按照"--"方式拼接
+
+        arr4.push(11);
+        document.write(arr4.join("--") + "<br>");   //按照"--"方式拼接
+
+
+
+
+    </script>
+</head>
+<body>
+
+
+
+</body>
+</html>

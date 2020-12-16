@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>逻辑运算符</title>
+    <script>
+        /*
+        * 逻辑运算符
+        *       &&：与（有短路效果）
+        *       ||：或（有短路效果）
+        *       !：非
+        *           * 其他类型转boolean
+        *               1. number转boolean：0和NaN为假，其他即为真
+        *               2. string转boolean：除了空字符串("")，其他都是true。注意空字符串不是null，是写个字符串，里面啥都没有
+        *               3. null和undefined转boolean：都是false
+        *               4. 对象转boolean：所有对象都为true
+        *
+        * */
+        var flag = true;
+        document.write(flag + "<br>");  //返回true
+        document.write(!flag + "<br>"); //返回false
+        document.write("<hr>");
+
+        //number转boolean
+        var num = 3;
+        var num2 = 0;
+        var num3 = NaN;
+        document.write(!num + "<br>");   //返回false
+        document.write(!num2 + "<br>");  //返回true
+        document.write(!num3 + "<br>");  //返回true
+        document.write("<hr>");
+
+        //string转boolean
+        var str1 = "abc";
+        var str2 = "";
+        document.write(!str1 + "<br>"); //返回false
+        document.write(!str2 + "<br>"); //返回true
+        document.write("<hr>");
+
+        //null 和 undefined 转boolean
+        var obj = null;
+        var obj2;   //啥也不写默认就是undefined
+        document.write(!obj + "<br>");  //返回true
+        document.write(!obj2 + "<br>"); //返回true
+        document.write("<hr>");
+
+        //对象转boolean
+        var date = new Date();
+        document.write(!date + "<br>"); //返回false
+
+        if(obj != null){    //防止空指针异常
+            alert(obj);
+        }
+        if(obj){            //防止空指针异常
+            alert(obj);
+        }
+
+        if(date != null){   //防止空指针异常
+            alert(123);
+        }
+        if(date){           //防止空指针异常
+            alert(111);
+        }
+
+        if(str1 != null && str1.length > 0){    //判断字符串str1不为空，且length大于0
+            alert(222);
+        }
+        //JS中可以这样定义，来简化书写
+        if(str1){           //JS中空字符串会转为false，不是空字符串会转为true
+            alert(333);
+        }
+
+
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

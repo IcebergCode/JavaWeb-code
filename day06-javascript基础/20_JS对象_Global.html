@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Global对象</title>
+    <script>
+        /*
+        * Global：
+        *       1. 特点：全局对象，这个Global中封装的方法不需要对象就可以直接调用。		方法名();
+        *
+        *       2. 方法：
+        *           encodeURI()：URL编码
+        *           decodeURI()：URL解码
+        *
+        *           encodeURIComponent()：URL编码，该方法编码的字符更多
+        *           decodeURIComponent()：URL解码
+        *
+        *           parseInt()：将字符串转为数字
+        *               * 逐一判断每一个字符是否是数字，直到不是数字为止，将前面数字部分转为number
+        *
+        *           isNaN()：判断一个值是否为NaN
+        *               * NaN六亲不认，连自己都不认。NaN参与的==比较全部为false
+        *
+        *           eval()：将JavaScript字符串，转换为脚本代码来执行
+        *
+        *       3. URL编码：
+        *           传智播客 = %E4%BC%A0%E6%99%BA%E6%92%AD%E5%AE%A2
+        *               这里的“传智播客”采用的是UTF-8编码，一个汉字占3个字节，共占12个字节。
+        *               每4为位用一个十六进制数来表示，所以一个字节用2个16进制数表示。
+        *               所以每两个16进制数表示一个字节，用%来写在每两个16进制数之前，用来区分。
+        *               所以数%个数为12个，表示一共有12个字节。
+        *
+        * */
+        var str1 = "http://www.baidu.com?wd=传智播客";
+        var encode1= encodeURI(str1);
+        document.write(encode1 + "<br>");    //http://www.baidu.com?wd=%E4%BC%A0%E6%99%BA%E6%92%AD%E5%AE%A2
+        var decode1 = decodeURI(encode1);
+        document.write(decode1 + "<br>");    //http://www.baidu.com?wd=传智播客
+
+        //encodeURIComponent方法，编码的字符更多了
+        var str2 = "http://www.baidu.com?wd=传智播客";
+        var encode2= encodeURIComponent(str2);
+        document.write(encode2 + "<br>");    //http%3A%2F%2Fwww.baidu.com%3Fwd%3D%E4%BC%A0%E6%99%BA%E6%92%AD%E5%AE%A2
+        var decode2 = decodeURIComponent(encode2);
+        document.write(decode2 + "<br>");   //http://www.baidu.com?wd=传智播客
+
+        var str3 = "123";
+        var number1 = parseInt(str3);
+        //alert(number1 + 1); //124
+
+        var str4 = "234abc";
+        var number2 = parseInt(str4);
+        //alert(number2 + 1); //235
+
+        var str5 = "a234abc";
+        var number3 = parseInt(str5);
+        //alert(number3 + 1); //NaN
+
+        var a = NaN;
+        document.write(a==NaN); //false
+        document.write(isNaN(a) + "<br>");  //true
+
+        var jscode = "alert(123)";
+        eval(jscode);   //会弹出123
+
+
+    </script>
+</head>
+<body>
+
+
+
+</body>
+</html>

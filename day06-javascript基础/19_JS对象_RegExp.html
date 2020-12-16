@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RegExp正则表达式对象</title>
+    <script>
+        /*
+        *   1. 创建
+                1. var reg = new RegExp("正则表达式");
+                2. var reg = /正则表达式/;			//注意：这种写法正则表达式外不要加引号，否则就变成了字符串
+            2. 方法
+                1. test(参数)：验证指定的字符串是否符合正则定义的规范
+                    符合返回true，不符合返回false
+        * */
+        //创建方式1
+        var reg1 = new RegExp("^\\w{6,12}$");     //引号里面"\\"表示：字符串内反斜杠需要转义
+        //创建方式2
+        var reg2 = /^\w{6,12}$/;   //"^"表示以单词字符开头，"$"表示以单词字符结尾。注意不要写成："/^\w{6,12}$/"，否则就变成了字符串
+
+        // alert(reg1);
+        // alert(reg2);
+
+        var username = "zhangsan";
+        var flag = reg1.test(username);
+        alert(flag);
+
+
+
+    </script>
+
+</head>
+<body>
+
+
+
+</body>
+</html>
