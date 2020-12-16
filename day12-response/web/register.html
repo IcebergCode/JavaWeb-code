@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script>
+        /*
+        * 分析：
+        *   点击超链接或者图片，需要换一张
+        *   1. 给超链接和图片绑定单击事件
+        *
+        *   2. 重新设置图片的src属性
+        * */
+        window.onload = function () {
+            //1. 获取图片对象
+            var img = document.getElementById("checkCode");
+
+            //2. 绑定单击事件
+            img.onclick = function () {
+                //加时间戳
+                var data = new Date().getTime();
+                img.src = "/day12/checkCodeServlet?"+data;
+            };
+        }
+
+    </script>
+
+</head>
+<body>
+    <img id="checkCode" src="/day12/checkCodeServlet">      <!-- 点击图图片刷新验证码 -->
+    <a id="change" href="http://localhost/day12/register.html">看不清换一张？</a>  <!-- 点击超链接刷新验证码 -->
+
+</body>
+</html>
